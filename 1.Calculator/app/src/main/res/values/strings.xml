@@ -1,0 +1,9 @@
+<resources>
+    <string name="app_name">MyFirstApplication</string>
+    <string name="app_logoText">Калькулятор</string>
+    <string name="app_surname">MyFirstApplication</string>
+    <string name="inputFirstNumber">Ввведите первое число</string>
+    <string name="inputSecondNumber">Ввведите второе число</string>
+    <string name="buttonSum">+</string>
+    <string name="resultOfSum">Результат</string>
+</resources>
