@@ -5,7 +5,7 @@
     <string name="inputFirstNumber">Ввведите первое число</string>
     <string name="inputSecondNumber">Ввведите второе число</string>
     <string name="buttonSum">+</string>
-    <string name="resultOfSum">Результат</string>
+    <string name="resultOfSum"> </string>
     <string name="zero">0</string>
     <string name="one">1</string>
     <string name="two">2</string>
