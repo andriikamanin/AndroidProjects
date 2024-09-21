@@ -12,53 +12,41 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class LoginActivity extends AppCompatActivity {
-
     private EditText editTextEmail;
     private EditText editTextPassword;
     private Button buttonLogin;
     private TextView registerLink;
+    private DatabaseHelper databaseHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        editTextEmail = findViewById(R.id.inputEmailAddress);
-        editTextPassword = findViewById(R.id.inputPassword);
+        editTextEmail = findViewById(R.id.editTextTextEmailAddress);
+        editTextPassword = findViewById(R.id.editTextTextPassword);
         buttonLogin = findViewById(R.id.loginButton);
         registerLink = findViewById(R.id.registerLink);
+        databaseHelper = new DatabaseHelper(this);
 
-        buttonLogin.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                loginUser();
-            }
-        });
-
-        registerLink.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                openRegisterActivity();
-            }
-        });
+        buttonLogin.setOnClickListener(v -> loginUser());
+        registerLink.setOnClickListener(v -> openRegisterActivity());
     }
 
     private void loginUser() {
-        String email = editTextEmail.getText().toString().trim();
+        String username = editTextEmail.getText().toString().trim();
         String password = editTextPassword.getText().toString().trim();
 
-        if (TextUtils.isEmpty(email) || TextUtils.isEmpty(password)) {
+        if (TextUtils.isEmpty(username) || TextUtils.isEmpty(password)) {
             Toast.makeText(this, "Please fill in all fields", Toast.LENGTH_SHORT).show();
             return;
         }
 
-        // Здесь будет проверка аутентификации (например, с базой данных)
-        // Для начала можно просто проверить на совпадение с заранее заданными значениями
-        if (email.equals("test@example.com") && password.equals("password")) {
+        if (databaseHelper.checkUser(username, password)) {
             // Успешный вход
             Intent intent = new Intent(LoginActivity.this, TodoListActivity.class);
             startActivity(intent);
-            finish(); // Закрываем текущую активность
+            finish();
         } else {
             Toast.makeText(this, "Invalid credentials", Toast.LENGTH_SHORT).show();
         }
@@ -69,3 +57,4 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 }
+
