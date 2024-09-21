@@ -18,7 +18,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/backgroundColorOfOperations"
         android:text="@string/plus"
-
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonEquals"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.714"
@@ -32,7 +32,7 @@
         android:layout_marginBottom="288dp"
         android:backgroundTint="@color/backgroundColorOfOperations"
         android:text="@string/divide"
-
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonEquals"
         app:layout_constraintEnd_toEndOf="parent" />
 
@@ -46,7 +46,7 @@
         android:backgroundTint="@color/backgroundColorOfOperations"
         android:text="@string/minus"
         app:layout_constraintBottom_toTopOf="@+id/buttonAddition"
-
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonSix"
@@ -63,7 +63,7 @@
         android:backgroundTint="@color/backgroundColorOfOperations"
         android:text="@string/multiply"
         app:layout_constraintBottom_toTopOf="@+id/buttonAddition"
-
+        android:textSize="36sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonSix"
@@ -101,9 +101,12 @@
         android:gravity="start"
         android:text="@string/zero"
         android:textFontWeight="900"
-        android:textSize="24sp"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+
+        />
+
 
     <Button
         android:id="@+id/buttonOne"
@@ -115,7 +118,9 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonZero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="36sp"
+        />
 
     <Button
         android:id="@+id/buttonFour"
@@ -127,7 +132,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonOne"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/buttonSeven"
@@ -136,6 +142,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/backgroundColorOfNumbers"
         android:text="@string/seven"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonFour"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
@@ -148,6 +155,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/backgroundColordOfTopOperations"
         android:text="@string/delete"
+        android:textSize="12sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSeven"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
@@ -163,6 +171,7 @@
         android:layout_marginBottom="16dp"
         android:backgroundTint="@color/backgroundColordOfTopOperations"
         android:text="@string/percent"
+        android:textSize="24sp"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/buttonEight"
         app:layout_constraintEnd_toEndOf="parent"
@@ -176,6 +185,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/backgroundColorOfNumbers"
         android:text="@string/eight"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonFive"
         app:layout_constraintEnd_toStartOf="@+id/buttonNine"
         app:layout_constraintStart_toEndOf="@+id/buttonSeven" />
@@ -187,6 +197,7 @@
         android:layout_marginBottom="20dp"
         android:backgroundTint="@color/backgroundColorOfNumbers"
         android:text="@string/nine"
+        android:textSize="36sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonSix"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.665"
@@ -203,7 +214,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonTwo"
         app:layout_constraintEnd_toStartOf="@+id/buttonSix"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonFour" />
+        app:layout_constraintStart_toEndOf="@+id/buttonFour"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/buttonSix"
@@ -215,7 +227,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonThree"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.665"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/buttonTwo"
@@ -228,7 +241,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonZero"
         app:layout_constraintEnd_toStartOf="@+id/buttonThree"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@+id/buttonOne" />
+        app:layout_constraintStart_toEndOf="@+id/buttonOne"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/buttonDot"
@@ -242,7 +256,8 @@
         app:layout_constraintHorizontal_bias="0.665"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/buttonThree"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="1.0"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/buttonThree"
@@ -254,7 +269,8 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonZero"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.665"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        android:textSize="36sp"/>
 
     <Button
         android:id="@+id/buttonEquals"
@@ -264,6 +280,7 @@
         android:layout_marginBottom="72dp"
         android:backgroundTint="@color/backgroundColorOfOperations"
         android:text="@string/equals"
+        android:textSize="36sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.714"
