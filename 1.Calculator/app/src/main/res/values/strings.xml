@@ -22,8 +22,9 @@
     <string name="multiply">×</string>
     <string name="divide">÷</string>
     <string name="equals">=</string>
+    <string name="percent">%</string>
 
     <string name="dot">.</string>
-    <string name="delete">C</string>
+    <string name="delete">AC</string>
 
 </resources>

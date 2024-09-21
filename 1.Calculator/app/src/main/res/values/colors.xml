@@ -7,4 +7,5 @@
     <color name="backgroundMainPage">#AFAFAFFF</color>
     <color name="backgroundColorOfNumbers">#353535</color>
     <color name="backgroundColorOfOperations">#fe9505</color>
+    <color name="backgroundColordOfTopOperations">#a5a5a5</color>
 </resources>

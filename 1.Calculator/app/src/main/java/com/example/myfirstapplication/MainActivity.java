@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String currentExpression = "";  // Переменная для хранения текущего выражения
     private Button zero, one, two, three, four, five, six, seven, eight, nine;
-    private Button plus, minus, multiply, divide, equals, dot, delete;
+    private Button plus, minus, multiply, divide, equals, dot, delete, percent;
     private TextView resultOfSum;
 
     @Override
@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity {
 
         plus = findViewById(R.id.buttonAddition);
         minus = findViewById(R.id.buttonSubtraction);
-        /*multiply = findViewById(R.id.buttonMultiply);
-        divide = findViewById(R.id.buttonDivide);*/
+        multiply = findViewById(R.id.buttonMultiplicationOperation);
+       divide = findViewById(R.id.buttonDivide);
         equals = findViewById(R.id.buttonEquals);
         dot = findViewById(R.id.buttonDot);
         delete = findViewById(R.id.buttonDelete);
-
+        percent = findViewById(R.id.buttonPercent);
         // Поле для вывода результата
         resultOfSum = findViewById(R.id.textResult);
 
@@ -65,10 +65,10 @@ public class MainActivity extends AppCompatActivity {
         // Обработчики нажатий на кнопки операций
         plus.setOnClickListener(view -> updateExpression("+"));
         minus.setOnClickListener(view -> updateExpression("-"));
-        /*multiply.setOnClickListener(view -> updateExpression("*"));
-        divide.setOnClickListener(view -> updateExpression("/"));*/
+        multiply.setOnClickListener(view -> updateExpression("*"));
+        divide.setOnClickListener(view -> updateExpression("/"));
         dot.setOnClickListener(view -> updateExpression("."));
-
+        percent.setOnClickListener(view -> updateExpression("%"));
 
 
         // Обработчик для кнопки "равно"
@@ -99,6 +99,33 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        percent.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                try {
+                    // Проверяем, что выражение не пустое
+                    if (!currentExpression.isEmpty()) {
+                        // Преобразуем текущее выражение в число
+                        double value = Double.parseDouble(currentExpression);
+
+                        // Делим значение на 100 для получения процента
+                        double result = value / 100;
+
+                        // Показываем результат
+                        resultOfSum.setText(removeTrailingZeros(result));
+
+                        // Сохраняем результат как текущее выражение
+                        currentExpression = String.valueOf(result);
+                    }
+                } catch (Exception e) {
+                    resultOfSum.setText("Error");
+                }
+            }
+        });
+
+
+
+
         delete = findViewById(R.id.buttonDelete);
 
         // Обработчик нажатия для кнопки Delete
@@ -113,6 +140,18 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+
+
+    // Функция для удаления лишних нулей (например, 15.0 станет 15)
+    private String removeTrailingZeros(double result) {
+        if (result == (long) result) {
+            return String.format("%d", (long) result);
+        } else {
+            return String.format("%s", result);
+        }
+    }
+
+
     // Функция для обновления выражения на экране
     private void updateExpression(String value) {
 
@@ -126,6 +165,8 @@ public class MainActivity extends AppCompatActivity {
         Expression exp = new ExpressionBuilder(expression).build();
         return exp.evaluate();
     }
+
+
 
 
 }
