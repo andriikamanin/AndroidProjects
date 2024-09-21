@@ -19,7 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
     private String currentExpression = "";  // Переменная для хранения текущего выражения
     private Button zero, one, two, three, four, five, six, seven, eight, nine;
-    private Button plus, minus, multiply, divide, equals;
+    private Button plus, minus, multiply, divide, equals, dot, delete;
     private TextView resultOfSum;
 
     @Override
@@ -44,6 +44,8 @@ public class MainActivity extends AppCompatActivity {
         /*multiply = findViewById(R.id.buttonMultiply);
         divide = findViewById(R.id.buttonDivide);*/
         equals = findViewById(R.id.buttonEquals);
+        dot = findViewById(R.id.buttonDot);
+        delete = findViewById(R.id.buttonDelete);
 
         // Поле для вывода результата
         resultOfSum = findViewById(R.id.textResult);
@@ -65,27 +67,56 @@ public class MainActivity extends AppCompatActivity {
         minus.setOnClickListener(view -> updateExpression("-"));
         /*multiply.setOnClickListener(view -> updateExpression("*"));
         divide.setOnClickListener(view -> updateExpression("/"));*/
+        dot.setOnClickListener(view -> updateExpression("."));
+
+
 
         // Обработчик для кнопки "равно"
         equals.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 try {
-                    // Вычисляем результат выражения
-                    double result = evaluateExpression(currentExpression);
-                    resultOfSum.setText(String.valueOf(result));  // Показываем результат
-                    currentExpression = String.valueOf(result);  // Сохраняем результат для дальнейших операций
+                    // Создаем объект ExpressionBuilder для вычисления выражения
+                    Expression expression = new ExpressionBuilder(currentExpression).build();
+
+                    // Вычисляем результат
+                    double result = expression.evaluate();
+
+                    // Проверяем, является ли результат целым числом
+                    if (result == (long) result) {
+                        // Если результат целое число, выводим его без дробной части
+                        resultOfSum.setText(String.valueOf((long) result));
+                    } else {
+                        // Если результат не целое число, выводим с дробной частью
+                        resultOfSum.setText(String.valueOf(result));
+                    }
+
+                    // Сохраняем результат для дальнейших операций
+                    currentExpression = String.valueOf(result);
                 } catch (Exception e) {
                     resultOfSum.setText("Error");
-                    currentExpression = "";  // Сбрасываем выражение в случае ошибки
                 }
             }
         });
+
+        delete = findViewById(R.id.buttonDelete);
+
+        // Обработчик нажатия для кнопки Delete
+        delete.setOnClickListener(view -> {
+            if (!currentExpression.isEmpty()) {
+                // Убираем последний символ из currentExpression
+                currentExpression = currentExpression.substring(0, currentExpression.length() -currentExpression.length() );
+                // Обновляем отображение результата
+                resultOfSum.setText(currentExpression);
+            }
+        });
+
     }
 
     // Функция для обновления выражения на экране
     private void updateExpression(String value) {
-        currentExpression += value;  // Добавляем значение к текущему выражению
+
+        currentExpression += value;// Добавляем значение к текущему выражению
         resultOfSum.setText(currentExpression);  // Обновляем текст на экране
     }
 
@@ -95,4 +126,6 @@ public class MainActivity extends AppCompatActivity {
         Expression exp = new ExpressionBuilder(expression).build();
         return exp.evaluate();
     }
+
+
 }

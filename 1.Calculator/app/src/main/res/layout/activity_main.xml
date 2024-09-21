@@ -15,15 +15,14 @@
         android:layout_width="70dp"
         android:layout_height="70dp"
         android:layout_marginEnd="16dp"
-        android:layout_marginBottom="8dp"
+        android:layout_marginBottom="12dp"
         android:backgroundTint="@color/backgroundColorOfOperations"
         android:text="@string/plus"
 
         app:layout_constraintBottom_toTopOf="@+id/buttonEquals"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.833"
+        app:layout_constraintHorizontal_bias="0.821"
         app:layout_constraintStart_toEndOf="@+id/buttonSix" />
-
 
     <Button
 
@@ -37,7 +36,7 @@
         app:layout_constraintBottom_toTopOf="@+id/buttonAddition"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.125"
         app:layout_constraintStart_toEndOf="@+id/buttonSix"
         app:layout_constraintTop_toTopOf="@+id/buttonNine"
         app:layout_constraintVertical_bias="0.0" />
@@ -59,8 +58,8 @@
 
     <Button
         android:id="@+id/buttonZero"
-        android:layout_width="261dp"
-        android:layout_height="65dp"
+        android:layout_width="170dp"
+        android:layout_height="70dp"
         android:layout_marginStart="28dp"
         android:layout_marginBottom="72dp"
         android:backgroundTint="@color/backgroundColorOfNumbers"
@@ -103,6 +102,18 @@
         android:backgroundTint="@color/backgroundColorOfNumbers"
         android:text="@string/seven"
         app:layout_constraintBottom_toTopOf="@+id/buttonFour"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.09"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="12dp"
+        android:backgroundTint="@color/backgroundColorOfNumbers"
+        android:text="@string/delete"
+        app:layout_constraintBottom_toTopOf="@+id/buttonSeven"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.09"
         app:layout_constraintStart_toStartOf="parent" />
@@ -167,6 +178,20 @@
         app:layout_constraintEnd_toStartOf="@+id/buttonThree"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/buttonOne" />
+
+    <Button
+        android:id="@+id/buttonDot"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:layout_marginBottom="72dp"
+        android:backgroundTint="@color/backgroundColorOfNumbers"
+        android:text="@string/dot"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.665"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonThree"
+        app:layout_constraintVertical_bias="1.0" />
 
     <Button
         android:id="@+id/buttonThree"

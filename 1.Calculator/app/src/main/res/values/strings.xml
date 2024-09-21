@@ -23,4 +23,7 @@
     <string name="divide">÷</string>
     <string name="equals">=</string>
 
+    <string name="dot">.</string>
+    <string name="delete">C</string>
+
 </resources>
