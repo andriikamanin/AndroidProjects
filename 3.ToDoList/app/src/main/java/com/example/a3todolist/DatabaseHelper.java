@@ -1,65 +1,62 @@
+package com.example.a3todolist;
+
 import android.content.ContentValues;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
-import java.util.ArrayList;
-import java.util.List;
+public class DatabaseHelper extends SQLiteOpenHelper {
 
-public class TodoDatabaseHelper extends SQLiteOpenHelper {
-
-    private static final String DATABASE_NAME = "todo.db";
+    private static final String DATABASE_NAME = "users.db";
     private static final int DATABASE_VERSION = 1;
-    private static final String TABLE_TODO = "todos";
+    private static final String TABLE_USERS = "users";
     private static final String COLUMN_ID = "id";
-    private static final String COLUMN_TASK = "task";
+    private static final String COLUMN_USERNAME = "username";
+    private static final String COLUMN_PASSWORD = "password";
 
-    public TodoDatabaseHelper(Context context) {
+    public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
     }
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        String createTable = "CREATE TABLE " + TABLE_TODO + " (" +
+        String createTable = "CREATE TABLE " + TABLE_USERS + " (" +
                 COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
-                COLUMN_TASK + " TEXT)";
+                COLUMN_USERNAME + " TEXT UNIQUE, " +
+                COLUMN_PASSWORD + " TEXT)";
         db.execSQL(createTable);
     }
 
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        db.execSQL("DROP TABLE IF EXISTS " + TABLE_TODO);
+        db.execSQL("DROP TABLE IF EXISTS " + TABLE_USERS);
         onCreate(db);
     }
 
-    public void addTask(String task) {
+    public boolean registerUser(String username, String password) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
-        values.put(COLUMN_TASK, task);
-        db.insert(TABLE_TODO, null, values);
+        values.put(COLUMN_USERNAME, username);
+        values.put(COLUMN_PASSWORD, password);
+
+        long result = db.insert(TABLE_USERS, null, values);
         db.close();
+        return result != -1; // Возвращает true, если вставка успешна
     }
 
-    public List<String> getAllTasks() {
-        List<String> tasks = new ArrayList<>();
+    public boolean checkUser(String username, String password) {
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor cursor = db.query(TABLE_TODO, new String[]{COLUMN_TASK}, null, null, null, null, null);
+        Cursor cursor = db.query(TABLE_USERS,
+                new String[]{COLUMN_ID},
+                COLUMN_USERNAME + "=? AND " + COLUMN_PASSWORD + "=?",
+                new String[]{username, password},
+                null, null, null);
 
-        if (cursor.moveToFirst()) {
-            do {
-                tasks.add(cursor.getString(0));
-            } while (cursor.moveToNext());
-        }
-
+        boolean exists = cursor.getCount() > 0;
         cursor.close();
         db.close();
-        return tasks;
-    }
-
-    public void deleteTask(String task) {
-        SQLiteDatabase db = this.getWritableDatabase();
-        db.delete(TABLE_TODO, COLUMN_TASK + "=?", new String[]{task});
-        db.close();
+        return exists; // Возвращает true, если пользователь найден
     }
 }
+
