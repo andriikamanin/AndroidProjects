@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">3.ToDoList</string>
+    <string name="main_header">Welcome Back</string>
+    <string name="login">Log in</string>
+    <string name="emailHint">Email</string>
+    <string name="passwordHint">Password</string>
+    <string name="noRegistered">Don\'t have an account? Register</string>
+</resources>
