@@ -5,4 +5,7 @@
     <string name="emailHint">Email</string>
     <string name="passwordHint">Password</string>
     <string name="noRegistered">Don\'t have an account? Register</string>
+    <string name="default_web_client_id">
+780077074527-vvpu8jcu7ugmg34md1sv09ikshuik0ne.apps.googleusercontent.com</string>
+
 </resources>
