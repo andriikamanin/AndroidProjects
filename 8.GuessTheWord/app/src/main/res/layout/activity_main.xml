@@ -4,71 +4,77 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-
     tools:context=".MainActivity">
 
-    <!-- Первый текст, который находится сверху и выровнен по центру -->
-    <TextView
-        android:id="@+id/numeroTentativi"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Количество попыток: "
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
-    <TextView
-        android:id="@+id/parolaNascosta"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:layout_below="@id/numeroTentativi"
-        android:textSize="18sp"
-        android:layout_marginTop="20dp"
-        android:layout_centerHorizontal="true" />
-
-    <!-- Поле для ввода текста и кнопка справа -->
+    <!-- Внутренний LinearLayout для центрирования содержимого -->
     <LinearLayout
-
-        android:id="@+id/inputFieldLayout"
+        android:id="@+id/centeredContent"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_below="@id/parolaNascosta"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp">
+        android:layout_centerInParent="true"
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
 
-        <!-- Поле для ввода текста -->
-        <EditText
-            android:id="@+id/campoDiImmissione"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:hint="Введите что-нибудь" />
-
-        <!-- Кнопка справа от поля для ввода -->
-        <Button
-            android:id="@+id/buttonProva"
+        <!-- Первый текст, который находится сверху и выровнен по центру -->
+        <TextView
+            android:id="@+id/numeroTentativi"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="PROVA"
-            android:layout_marginStart="8dp" />
+            android:text="Количество попыток: "
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" />
+
+        <!-- Скрытое слово (по центру) -->
+        <TextView
+            android:id="@+id/parolaNascosta"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:layout_marginBottom="20dp"
+            android:gravity="center" />
+
+        <!-- Поле для ввода текста и кнопка справа -->
+        <LinearLayout
+            android:id="@+id/inputFieldLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:gravity="center">
+
+            <!-- Поле для ввода текста -->
+            <EditText
+                android:id="@+id/campoDiImmissione"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="Введите что-нибудь" />
+
+            <!-- Кнопка справа от поля для ввода -->
+            <Button
+                android:id="@+id/buttonProva"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="PROVA"
+                android:layout_marginStart="8dp" />
+        </LinearLayout>
+
+        <!-- Текстовое поле под вводом и кнопкой -->
+        <TextView
+            android:id="@+id/resultText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text=""
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp" />
+
     </LinearLayout>
 
-    <!-- Текстовое поле под вводом и кнопкой -->
-    <TextView
-        android:id="@+id/resultText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text=""
-        android:textSize="18sp"
-        android:textStyle="bold"
-        android:gravity="center"
-        android:layout_below="@id/inputFieldLayout"
-        android:layout_marginTop="20dp"
-        android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp" />
-
 </RelativeLayout>
-
-
