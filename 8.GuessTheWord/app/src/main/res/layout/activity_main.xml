@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     tools:context=".MainActivity">
 
     <!-- Первый текст, который находится сверху и выровнен по центру -->
@@ -27,6 +28,7 @@
 
     <!-- Поле для ввода текста и кнопка справа -->
     <LinearLayout
+
         android:id="@+id/inputFieldLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -38,7 +40,7 @@
 
         <!-- Поле для ввода текста -->
         <EditText
-            android:id="@+id/editText"
+            android:id="@+id/campoDiImmissione"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -46,7 +48,7 @@
 
         <!-- Кнопка справа от поля для ввода -->
         <Button
-            android:id="@+id/buttonSubmit"
+            android:id="@+id/buttonProva"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="PROVA"
@@ -58,7 +60,7 @@
         android:id="@+id/resultText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Результат будет здесь"
+        android:text=""
         android:textSize="18sp"
         android:textStyle="bold"
         android:gravity="center"
