@@ -18,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText campoDiImmissione;
     private Button buttonProva;
 
+    String nascosta = "parola";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -29,5 +31,17 @@ public class MainActivity extends AppCompatActivity {
         campoDiImmissione =     findViewById(R.id.campoDiImmissione);
         buttonProva       =     findViewById(R.id.buttonProva);
 
+
+
+    }
+
+    public void compilaCcampoDellaParolaNascosta(){
+        StringBuilder sb = new StringBuilder();
+        for(int i=0; i<nascosta.length(); i++){
+            sb.append("_") ;
+        }
+        nascosta = sb.toString();
+
+        parolaNascosta.setText(nascosta);
     }
 }
